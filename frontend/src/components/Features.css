@@ -1,0 +1,248 @@
+/* Base styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Dark mode */
+  .dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  /* Container for all features */
+  .features-container {
+    background-color: #fff;
+    color: #060606;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 3rem 2rem;
+    margin-top: 60px; /* Added margin to move content down */
+  }
+  
+  /* Dark mode container */
+  .features-container.dark-mode {
+    background-color: #121212;
+    color: #fff;
+  }
+  
+  /* Navigation Bar */
+  .features-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .features-nav h1 {
+    font-size: 2.5rem;
+    color: #ffcc00;
+  }
+  
+  .features-buttons button {
+    padding: 0.5rem 1.2rem;
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .features-buttons button:hover {
+    background-color: #e6b800;
+  }
+  
+  /* Features Grid */
+  .features-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust columns automatically */
+    gap: 1rem;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .feature-card {
+    background-color: #fff;
+    border: 1px solid #f1f1f1;
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px) scale(1.05); /* Optional scaling for the whole card */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* 3D effect for feature icons */
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth effect */
+    transform-style: preserve-3d; /* Enable 3D effect */
+  }
+  
+  .feature-card:hover .feature-icon {
+    transform: scale(1.2) rotateY(15deg) rotateX(10deg); /* Apply 3D rotation and scaling */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Add a shadow to enhance the effect */
+  }
+  
+  .feature-card h3 {
+    font-size: 1.5rem;
+    color: #ffcc00;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-card p {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Testimonials Section */
+  .features-testimonials {
+    background-color: #f1f1f1;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+  
+  .testimonial-card {
+    text-align: center;
+  }
+  
+  .testimonial-card p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonial-card h4 {
+    font-size: 1.1rem;
+    color: #ffcc00;
+  }
+  
+  /* Subscription Plans */
+  .features-subscriptions {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .features-subscriptions button {
+    padding: 0.8rem 2rem;
+    background-color: #ffcc00;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .features-subscriptions button:hover {
+    transform: scale(1.1);
+    background-color: #e6b800;
+  }
+  
+  /* FAQ Section */
+  .features-faq details {
+    margin-bottom: 1rem;
+  }
+  
+  .features-faq summary {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #ffcc00;
+  }
+  
+  .features-faq p {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 0.5rem;
+  }
+  
+  /* Referral Program */
+  .features-referral {
+    background-color: #ffcc00;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .features-referral button {
+    padding: 0.8rem 2rem;
+    background-color: #000;
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .features-referral button:hover {
+    transform: scale(1.1);
+    background-color: #ffcc00;
+    color: #111;
+  }
+  
+  /* Modal Styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark background to dim the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    backdrop-filter: blur(5px); /* Blur the background */
+    transition: all 0.3s ease;
+  }
+  
+  .modal {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 400px;
+  }
+  
+  .modal h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .modal ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .modal ul li {
+    font-size: 1.1rem;
+    margin: 1rem 0;
+  }
+  
+  .modal button {
+    padding: 0.8rem 2rem;
+    background-color: #ffcc00;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .modal button:hover {
+    transform: scale(1.1);
+    background-color: #e6b800;
+  }
+  
