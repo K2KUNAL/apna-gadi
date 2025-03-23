@@ -1,0 +1,54 @@
+CREATE DATABASE apna_gadi;
+
+-- Use the database
+USE apna_gadi;
+
+-- Drop existing tables
+DROP TABLE IF EXISTS rentals;
+DROP TABLE IF EXISTS vehicles;
+DROP TABLE IF EXISTS users;
+
+-- Create Users table (password length increased for bcrypt hash storage)
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,  -- Should be hashed before storing
+    phone VARCHAR(15) UNIQUE NOT NULL
+);
+
+-- Create Vehicles table
+CREATE TABLE vehicles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    type ENUM('scooter', 'car') NOT NULL,
+    price_per_hour DECIMAL(10,2) NOT NULL,
+    status ENUM('available', 'rented') DEFAULT 'available',
+    image_url TEXT
+);
+
+-- Create Rentals table
+CREATE TABLE rentals (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    vehicle_id INT NOT NULL,
+    rental_start DATETIME DEFAULT CURRENT_TIMESTAMP,
+    rental_end DATETIME NULL,
+    total_price DECIMAL(10,2) NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (vehicle_id) REFERENCES vehicles(id) ON DELETE CASCADE
+);
+
+-- Show all tables
+SHOW TABLES;
+
+-- Check if users exist
+SELECT * FROM users;
+
+-- Check if a specific user exists
+SELECT id, email, password FROM users WHERE email = 'k2kunalkhude22@gmail.com';
+
+-- Insert a user with a **hashed password**
+INSERT INTO users (name, email, password, phone) 
+VALUES ('Test User', 'test@gmail.com', '$2b$10$hashedpasswordexample', '9999999999');
+DESC users;

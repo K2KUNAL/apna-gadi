@@ -1,0 +1,5 @@
+# Ignore node_modules folder (to prevent committing dependencies)
+node_modules/
+
+# Ignore .env file (to keep credentials secret)
+.env
