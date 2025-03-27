@@ -14,18 +14,17 @@ const Signup = () => {
     password: "",
     confirmPassword: "",
   });
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
-  // ✅ Handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // ✅ Toggle password visibility
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -34,71 +33,68 @@ const Signup = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
-  // ✅ Unified navigation after successful signup
   const handleSignup = async (e) => {
     e.preventDefault();
     const { name, email, phone, password, confirmPassword } = formData;
 
     if (!name || !email || !phone || !password || !confirmPassword) {
-        setMessage("⚠️ All fields are required!");
-        return;
+      setMessage("⚠️ All fields are required!");
+      return;
     }
 
     if (password !== confirmPassword) {
-        setMessage("⚠️ Passwords do not match!");
-        return;
+      setMessage("⚠️ Passwords do not match!");
+      return;
     }
 
     try {
-        const result = await signUpUser(email, password);
-        if (result.success) {
-            setSuccess(true);
-            setMessage("🎉 Signup successful! Redirecting...");
-            
-            // ✅ Store user info to persist session
-            localStorage.setItem("user", JSON.stringify(result.user));
+      const result = await signUpUser(email, password);
+      if (result.success) {
+        setSuccess(true);
+        setMessage("🎉 Signup successful! Redirecting...");
 
-            // ✅ Redirect to Home Page IMMEDIATELY
-            navigate("/home");
-        } else {
-            setMessage(result.message || "🚨 Signup failed! Try again.");
-        }
+        localStorage.setItem("user", JSON.stringify(result.user));
+        navigate("/home");
+      } else {
+        setMessage(result.message || "🚨 Signup failed! Try again.");
+      }
     } catch (error) {
-        setMessage(error.message || "🚨 Signup failed! Please try again.");
+      setMessage(error.message || "🚨 Signup failed! Please try again.");
     }
-};
+  };
 
-// ✅ Google Signup with Redirection
-const handleGoogleSignup = async () => {
+  const handleGoogleSignup = async () => {
     const result = await signInWithGoogle();
     if (result.success) {
-        localStorage.setItem("user", JSON.stringify(result.user)); // ✅ Store session
-        navigate("/home");  // ✅ Redirect immediately
+      localStorage.setItem("user", JSON.stringify(result.user));
+      navigate("/home");
     } else {
-        setMessage(result.message || "🚨 Google signup failed! Try again.");
+      setMessage(result.message || "🚨 Google signup failed! Try again.");
     }
-};
+  };
 
-// ✅ GitHub Signup with Redirection
-const handleGitHubSignup = async () => {
+  const handleGitHubSignup = async () => {
     const result = await signInWithGitHub();
     if (result.success) {
-        localStorage.setItem("user", JSON.stringify(result.user)); // ✅ Store session
-        navigate("/home");  // ✅ Redirect immediately
+      localStorage.setItem("user", JSON.stringify(result.user));
+      navigate("/home");
     } else {
-        setMessage(result.message || "🚨 GitHub signup failed! Try again.");
+      setMessage(result.message || "🚨 GitHub signup failed! Try again.");
     }
-};
+  };
 
   return (
-    <div className="signup-container">
+    <div
+      className="signup-container"
+  
+    >
       <div className="signup-box">
         <h2 className="signup-title">Signup</h2>
         <form onSubmit={handleSignup}>
           <input type="text" name="name" placeholder="Full Name" value={formData.name} onChange={handleChange} required />
           <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
           <input type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required />
-          
+
           <div className="password-field">
             <input type={showPassword ? "text" : "password"} name="password" placeholder="Create Password" value={formData.password} onChange={handleChange} required />
             <span onClick={togglePasswordVisibility}>{showPassword ? <FaEyeSlash /> : <FaEye />}</span>
