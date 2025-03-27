@@ -52,3 +52,6 @@ SELECT id, email, password FROM users WHERE email = 'k2kunalkhude22@gmail.com';
 INSERT INTO users (name, email, password, phone) 
 VALUES ('Test User', 'test@gmail.com', '$2b$10$hashedpasswordexample', '9999999999');
 DESC users;
+
+
+firebase===== https://console.firebase.google.com/u/0/project/myauthapp-2efb5/overview?fb_gclid=Cj0KCQjwy46_BhDOARIsAIvmcwPXb6ATQsbMS1Ew0C4DASpAIuAcejuDUwrZrZ-YIh7WWaUe7ykjmegaAnjnEALw_wcB
