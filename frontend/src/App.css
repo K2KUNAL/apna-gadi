@@ -1,0 +1,59 @@
+
+/* Login Page Styles */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  
+  background: linear-gradient(135deg, #222, #111);
+  color: white;
+}
+
+.login-box {
+  background-color: white;
+  color: black;
+  width: 80%;
+  height: 80%;
+  max-width: 400px;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(255, 255, 0, 0.3);
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: yellow;
+}
+
+.login-subtitle {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: yellow;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: gold;
+}

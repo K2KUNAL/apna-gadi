@@ -1,0 +1,127 @@
+/* Signup Page Styles */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f8f9fa;
+  }
+  
+  .signup-box {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    border: 3px solid black;
+    text-align: center;
+  }
+  
+  .signup-title {
+    background-color: yellow;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .password-field {
+    position: relative;
+    margin-bottom: 10px;
+  }
+  
+  .password-field input {
+    width: 100%;
+    padding-right: 40px;
+  }
+  
+  .password-field span {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .signup-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: black;
+    color: yellow;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .signup-btn:hover {
+    background: #333;
+  }
+  
+  .social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .google-btn, .github-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .google-btn {
+    background: white;
+    border: 1px solid gray;
+  }
+  
+  .github-btn {
+    background: #333;
+    color: white;
+    border: none;
+  }
+  
+  .message {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    color: red;
+  }
+  
+  .login-link {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .login-link a {
+    color: darkblue;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+  
