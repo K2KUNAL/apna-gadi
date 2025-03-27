@@ -3,6 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { signInWithGoogle, signInWithGitHub } from "../controllers/authController"; 
 import { app } from "../firebase/firebaseConfig"; 
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 const auth = getAuth(app);
 
@@ -68,9 +70,8 @@ const Login = () => {
 
         {message && <p style={{ textAlign: "center", marginTop: "10px", color: "red" }}>{message}</p>}
 
-        <button onClick={handleGoogleLogin} style={{ width: "100%", marginTop: "10px", padding: "10px", backgroundColor: "#4285F4", color: "#fff", border: "none", borderRadius: "5px", cursor: "pointer" }}>Sign in with Google</button>
-        <button onClick={handleGitHubLogin} style={{ width: "100%", marginTop: "10px", padding: "10px", backgroundColor: "#333", color: "#fff", border: "none", borderRadius: "5px", cursor: "pointer" }}>Sign in with GitHub</button>
-
+              <button className="google-btn" onClick={handleGoogleLogin}><FcGoogle /> Sign up with Google</button>
+                  <button className="github-btn" onClick={handleGitHubLogin}><FaGithub /> Sign up with GitHub</button>
         <Link to="/signup" style={{ marginTop: "15px", display: "block", textDecoration: "none", color: "#007bff" }}>
           <span style={{ fontWeight: "bold", color: "black" }}>Don't have an account?</span> <span style={{ color: "darkblue", textDecoration: "none", fontWeight: "bold" }}>Sign up here</span>
         </Link>
