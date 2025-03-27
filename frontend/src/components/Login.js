@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { signInWithGoogle, signInWithGitHub } from "../controllers/authController"; 
-import { app } from "../firebase/firebaseConfig"; 
+import { signInWithGoogle, signInWithGitHub } from "../controllers/authController";
+import { app } from "../firebase/firebaseConfig";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
@@ -25,8 +25,8 @@ const Login = () => {
       console.log("📤 Attempting Firebase Login:", formData);
       const userCredential = await signInWithEmailAndPassword(auth, formData.email, formData.password);
       console.log("✅ Firebase Login Success:", userCredential.user);
-      
-      localStorage.setItem("token", userCredential.user.accessToken); 
+
+      localStorage.setItem("token", userCredential.user.accessToken);
       setMessage("✅ Login successful!");
       setTimeout(() => navigate("/home"), 1500);
     } catch (error) {
